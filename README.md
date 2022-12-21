@@ -1,6 +1,20 @@
 # cv-fbi-robbery
-Free open source FiveM QBCore fbi robbery
-1 - Add items:
+
+**Free open source FiveM QBCore fbi robbery**
+# Preview
+[CV-Fbi-Robbery](https://www.youtube.com/watch?v=ZIFlmk94rNE)
+
+# Dependencies:
+* QBCore Framework
+* mhacking
+* memorygame
+* var hack
+
+# Installation
+
+1 - Add Minigames 
+
+2 - Add items:
 go to "qb-core" then shared folder > items.lua and add this : 
 
 ```lua
@@ -24,7 +38,12 @@ go to "qb-core" then shared folder > items.lua and add this :
 ```
 }
 
-2 - Add images to inventory
+3 - Add images to inventory
 here you have images folder copy the images inside that folder and put it inside "qb-inventory"
 
-3 - Enjoy
+4 - Enjoy
+# CREDITS:
+* [NaorShabtai](https://github.com/NaorShabtai)
+* [royyalbert](https://github.com/royyalbert)
+* [CoreVersion](https://discord.gg/nKzaJhMkVa0)
+
