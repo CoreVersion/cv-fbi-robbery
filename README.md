@@ -2,7 +2,7 @@
 
 **Free open source FiveM QBCore fbi robbery**
 # Preview
-[CV-Fbi-Robbery](https://www.youtube.com/watch?v=ZIFlmk94rNE)
+* [CV-Fbi-Robbery](https://www.youtube.com/watch?v=ZIFlmk94rNE)
 
 # Dependencies:
 * QBCore Framework
