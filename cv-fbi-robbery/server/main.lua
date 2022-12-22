@@ -22,6 +22,7 @@ Core.Functions.CreateCallback('qb-wearhouse:Checkitem2', function(source, cb)
         cb(false)
 	end
 end)
+print("sdad")
 
 RegisterServerEvent('qb-warehouse:particles')
 AddEventHandler('qb-warehouse:particles', function(method)
