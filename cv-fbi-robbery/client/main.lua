@@ -234,7 +234,7 @@ RegisterNetEvent('qb-warehouse:client:sendmail', function(amount)
 RegisterNetEvent('qb-warehouse:client:thermite', function()
     Core.Functions.TriggerCallback('qb-wearhouse:Checkitem2', function(HasItems)
         if HasItems then
-    exports["memorygame"]:thermiteminigame(10, 10, 3, 10,
+        exports['ps-ui']:Thermite(function(success)
     function() -- success
         Core.Functions.Notify("You have successfully sabotage the elctricity", "success")
         firstDoor()
@@ -248,7 +248,7 @@ RegisterNetEvent('qb-warehouse:client:thermite', function()
     else
         Core.Functions.Notify("You don't have thermite", "error")
     end
-end)
+end, 10, 5, 3) -- Time, Gridsize (5, 6, 7, 8, 9, 10), IncorrectBlocks
 end)
 
 RegisterNetEvent("qb-warehouse:client:Document", function()
