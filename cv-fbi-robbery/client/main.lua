@@ -20,9 +20,6 @@ local StartCoolDownRemaining = 0
 
 local CurrentCops = 0 
 
--- local fbiv = "fbi"
-
--- local fbiv2 = "fbi2"
 
 
 local waerhouseguards = {
@@ -183,14 +180,6 @@ function SpawnGuards2()
 	SetRelationshipBetweenGroups(5, GetHashKey("PLAYER"), GetHashKey("GuardPeds"))
 end
 
--- RegisterNetEvent("qb-warehouse:client:createvehicle", function()
---     local Vehicle = CreateVehicle("fbi", -621.9511, -1155.932, 22.178993, 359.59097, true, false)
---     local Vehicle2 = CreateVehicle("fbi2", -620.9715, -1095.139, 22.178873, 178.82859, true, false)
---     SetVehicleNumberPlateText(Vehicle,"GOV")
---     SetVehicleNumberPlateText(Vehicle2,"GOV")
---     SetVehicleSiren(Vehicle, true)
---     SetVehicleSiren(Vehicle2, true)
--- end)
 
 
 
@@ -315,7 +304,6 @@ RegisterNetEvent('qb-warehouse:client:exit', function()
     print(currentPos) -- changed!
     exports[Config.Target]:RemoveTargetModel(waerhouseguards, 'FBI')
     exports[Config.Target]:RemoveTargetModel(waerhouseguards2, 'FBI2')
-    --TriggerEvent("qb-warehouse:client:createvehicle")
 end)
 
 RegisterNetEvent("qb-warehouse:client:cash2", function()
@@ -499,14 +487,6 @@ end)
 
 
 ------- Commands -------
-
-RegisterCommand("z", function(source, args, rawCommand)
-    TriggerEvent("onResourceStop")
-end)
-
--- RegisterCommand("lk", function()
---     CheckCoords()
--- end)
 
 
 ------- spawn the ped -------
