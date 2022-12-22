@@ -7,8 +7,8 @@
 # Dependencies:
 * [QBCore Framework](https://github.com/qbcore-framework)
 * [mhacking](https://github.com/qbcore-framework/mhacking)
-* memorygame
-* var hack
+* [memorygame]
+* [ps-ui](https://github.com/Project-Sloth/ps-ui)
 
 # Installation
 
