@@ -682,20 +682,15 @@ RegisterNetEvent('cv-fbi-robbery:FbiHack', function()
 	while not HasAnimDictLoaded(animDict) do Wait(10) end
 	local ped = PlayerPedId()
 	TaskPlayAnim(ped, animDict, anim, 1.0, 1.0, -1, 1, 0, 0, 0, 0)
-	exports['fbihack']:OpenHackingGame(function(success)
+	exports['ps-ui']:VarHack(function(success)
 		if success then
 			print("success")
 			TriggerServerEvent(Config.Core..":Server:AddItem", Config.FbiServerusb, 1)
 			TriggerEvent("inventory:client:ItemBox", Core.Shared.Items[Config.FbiServerusb], "add")
 			TriggerServerEvent(Config.Core..":Server:AddItem", Config.FbiServerusb2, 1)
 			TriggerEvent("inventory:client:ItemBox", Core.Shared.Items[Config.FbiServerusb2], "add")
-			if Config.he then
-				Core.Functions.Notify("הצלחת את הפריצה יאח עכשיו קח את הדברים ", 'success')
-				Core.Functions.Notify("קיבלת שני כוננים ניידים לך תעשה כסף", 'success')
-			else
-				Core.Functions.Notify("You Success The Hack", 'success')
-				Core.Functions.Notify("You Got The USB's", 'success')
-			end
+			Core.Functions.Notify("You Success The Hack", 'success')
+			Core.Functions.Notify("You Got The USB's", 'success')
 			FbiHack = false
 			DownElevator = true
 			InEncrypted = true
