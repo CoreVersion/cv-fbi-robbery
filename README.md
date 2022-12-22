@@ -30,11 +30,11 @@ go to "qb-core" then shared folder > items.lua and add this :
 	['fbi_laptop_5'] 		 		 = {['name'] = 'fbi_laptop_5', 					['label'] = 'fbi laptop 5', 			['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'fbi_laptop_5.png', 		['unique'] = false, 	['useable'] = true,		['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'FBI laptop'},
 	['fbiserverusb'] 		 		 = {['name'] = 'fbiserverusb', 					['label'] = 'FBI SERVER USB Data', 		['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'fbiserverusb.png', 		['unique'] = false, 	['useable'] = true,		['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'FBI laptop'},
 	['fbiserverusb_2'] 		 		 = {['name'] = 'fbiserverusb_2', 				['label'] = 'FBI SERVER USB Data', 		['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'fbiserverusb2.png', 		['unique'] = false, 	['useable'] = true,		['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'FBI laptop'},
-	['encrypted_document'] 		 	 = {['name'] = 'encrypted_document', 			['label'] = ' FBI encrypted document', 	['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'np_documents.png', 		['unique'] = false, 	['useable'] = true,		['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'FBI encrypted document'},
+	['encrypted_document'] 		 	 = {['name'] = 'encrypted_document', 			['label'] = ' FBI encrypted document', 	['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'cv_documents.png', 		['unique'] = false, 	['useable'] = true,		['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'FBI encrypted document'},
 	['electronickit'] 				 = {['name'] = 'electronickit', 			  	['label'] = 'Electronic Kit', 			['weight'] = 100, 		['type'] = 'item', 		['image'] = 'electronickit.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = {accept = {'gatecrack'}, reward = 'trojan_usb', anim = nil}, ['description'] = 'If you\'ve always wanted to build a robot you can maybe start here. Maybe you\'ll be the new Elon Musk?'},
 
 	---prep---
-	['wearhousecard'] 					 = {['name'] = 'wearhousecard', 			 	  	  	['label'] = 'FBI Card', 		['weight'] = 100, 		['type'] = 'item', 		['image'] = 'np_exec_card.png', 				['unique'] = true, 		['useable'] = true, 	['shouldClose'] = false,   ['combinable'] = nil,   ['description'] = 'Wear house card', ['created'] = nil, ['decay'] = 28.0},
+	['wearhousecard'] 					 = {['name'] = 'wearhousecard', 			 	  	  	['label'] = 'FBI Card', 		['weight'] = 100, 		['type'] = 'item', 		['image'] = 'cv_exec_card.png', 				['unique'] = true, 		['useable'] = true, 	['shouldClose'] = false,   ['combinable'] = nil,   ['description'] = 'Wear house card', ['created'] = nil, ['decay'] = 28.0},
 ```
 }
 
