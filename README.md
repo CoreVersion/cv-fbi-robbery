@@ -5,8 +5,8 @@
 * [CV-Fbi-Robbery](https://www.youtube.com/watch?v=ZIFlmk94rNE)
 
 # Dependencies:
-* QBCore Framework
-* mhacking
+* [QBCore Framework](https://github.com/qbcore-framework)
+* [mhacking](https://github.com/qbcore-framework/mhacking)
 * memorygame
 * var hack
 
