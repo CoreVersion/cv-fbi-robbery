@@ -7,7 +7,6 @@
 # Dependencies:
 * [QBCore Framework](https://github.com/qbcore-framework)
 * [mhacking](https://github.com/qbcore-framework/mhacking)
-* [memorygame]
 * [ps-ui](https://github.com/Project-Sloth/ps-ui)
 
 # Installation
