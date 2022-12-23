@@ -33,7 +33,7 @@ Config.LogsImage = "https://cdn.discordapp.com/attachments/1017143045407383592/1
 
 Config.LogsThumbnail = "https://cdn.discordapp.com/attachments/1017143045407383592/1018140423673352192/baner.png" -- Your img
 
-Config.WebHook = "https://discord.com/api/webhooks/1020658491947491388/umB82UaWrxyuOCoEnpEXGvOAZIk5nKqH8Prn7rPCzPEm-krPVnido2-uj_K_xLI-aRsW" -- Your WebHook
+Config.WebHook = "here" -- Your WebHook
 
 -------------------
 --Police Alert
