@@ -299,53 +299,18 @@ end
 
 RegisterNetEvent('cv-fbi-robbery:Security', function()
 	print("coreversion On Top!")
-	if Config.he then
-		Core.Functions.TriggerCallback('cv-fbi-robbery:CheckForStart', function(HasItems)
-			if HasItems then
-				Core.Functions.Progressbar("power_hack", "מתחבר למערכת בהצלחה לך...", math.random(5500, 5600), false, true, {
-					disableMovement = true,
-					disableCarMovement = false,
-					disableMouse = false,
-					disableCombat = false,
-				})
-				SecurityAnimation()
-				Wait(2000)
-				exports["memorygame"]:thermiteminigame(8, 3, 2, 4,
-				function() -- success
-					Core.Functions.Notify("פייי איזה מלך הצלחת לעבור עכשיו לך לגנוב לפני שהמאנייק בא " , "success")
-					CanRob = true
-					Elevator = true
-					Security = false
-					SpawnGuards()
-					SecuritySuccessAnim()
-					TriggerServerEvent(Config.Core..":Server:RemoveItem", Config.FBICardItem, 1)
-					TriggerEvent("inventory:client:ItemBox", Core.Shared.Items[Config.FBICardItem], "remove")
-					TriggerServerEvent(Config.Core..":Server:RemoveItem", Config.ElectronicKitItem, 1)
-					TriggerEvent("inventory:client:ItemBox", Core.Shared.Items[Config.ElectronicKitItem], "remove")
-				end,
-				function() -- failure
-					Core.Functions.Notify("נכשלת יאפס בהצלחה לך בכלא !", "error")
-					SecurityFailedAnim()
-					Security = true
-					CanRob = false
-				end)
-			else
-				Core.Functions.Notify("אין לך את הדברים שדרושים !", "error")
-			end
-		end)
-	else
-		Core.Functions.TriggerCallback('cv-fbi-robbery:CheckForStart', function(HasItems)
-			if HasItems then
-				Core.Functions.Progressbar("power_hack", "Connecting...", math.random(5500, 5600), false, true, {
-					disableMovement = true,
-					disableCarMovement = false,
-					disableMouse = false,
-					disableCombat = false,
-				})
-				SecurityAnimation()
-				Wait(2000)
-				exports["memorygame"]:thermiteminigame(8, 3, 2, 4,
-				function() -- success
+	Core.Functions.TriggerCallback('cv-fbi-robbery:CheckForStart', function(HasItems)
+		if HasItems then
+			Core.Functions.Progressbar("power_hack", "Connecting...", math.random(5500, 5600), false, true, {
+				disableMovement = true,
+				disableCarMovement = false,
+				disableMouse = false,
+				disableCombat = false,
+			})
+			SecurityAnimation()
+			Wait(2000)
+			exports['ps-ui']:Thermite(function(success)
+				if success then
 					Core.Functions.Notify("Youv'e Successfully Hacked The Security System ! Now Go Rob Before The Cops Arrive !")
 					CanRob = true
 					Elevator = true
@@ -356,18 +321,16 @@ RegisterNetEvent('cv-fbi-robbery:Security', function()
 					TriggerEvent("inventory:client:ItemBox", Core.Shared.Items[Config.FBICardItem], "remove")
 					TriggerServerEvent(Config.Core..":Server:RemoveItem", Config.ElectronicKitItem, 1)
 					TriggerEvent("inventory:client:ItemBox", Core.Shared.Items[Config.ElectronicKitItem], "remove")
-				end,
-				function() -- failure
+				else
 					Core.Functions.Notify("Failed !")
 					SecurityFailedAnim()
 					Security = true
 					CanRob = false
-				end)
-			else
-				Core.Functions.Notify("You Dont Have The Right Items !")
-			end
-		end)
-	end
+				end, 10, 5, 3) 
+		else
+			Core.Functions.Notify("You Dont Have The Right Items !")
+		end
+	end)
 end)
 
 local hackCoord = {x = 124.5725 , y = -760.9537, z = 41.451705, h = 63.933696}
@@ -437,18 +400,10 @@ function OnHackRobDone(success, timeremaining)
         TriggerEvent('mhacking:hide')
         Security = true
         Wait(200)
-		if Config.he then
-        	Core.Functions.Notify("הצלחת לפרוץ את המערכת הראשונה עכשיו רוץ לנטרל את המערכת אבטחה " , "success")
-		else
-			Core.Functions.Notify("Youv'e Successfully Connected The Electronic kit Next Up is Security System " , "success")
-		end
+		Core.Functions.Notify("Youv'e Successfully Connected The Electronic kit Next Up is Security System " , "success")
 		InFbiBlip()
     else
-		if Config.he then
-			Core.Functions.Notify("נכשלת בפריצת המערכת בוזו " , "error")
-		else
-			Core.Functions.Notify("You Failed To Hack The System Try Again " , "error")
-		end
+		Core.Functions.Notify("You Failed To Hack The System Try Again " , "error")
         Core.Functions.Notify("Failed !")
         TriggerServerEvent(Config.Core..":Server:RemoveItem", Config.ElectronicKitItem, 1)
         TriggerEvent("inventory:client:ItemBox", Core.Shared.Items[Config.ElectronicKitItem], "remove")
@@ -610,54 +565,28 @@ RegisterNetEvent('cv-fbi-robbery:client:setRobState', function(stateType, state,
 end)
 
 function Rob(r)
-	if Config.he then
-		if CanRob == true then
-			Core.Functions.Progressbar("search_register", "מחפש לך דברים יזבל...", 5000, false, true, {
-				disableMovement = true,
-				disableCarMovement = true,
-				disableMouse = false,
-				disableCombat = true,
-			}, {
-				animDict = 'mp_arresting',
-				anim = 'a_uncuff',
-				flags = 16,
-			}, {}, {}, function()
-				TriggerServerEvent('cv-fbi-robbery:server:setRobState', "isOpened", true, r)
-				TriggerServerEvent('cv-fbi-robbery:server:setRobState', "isBusy", false, r)
-				TriggerServerEvent("cv-fbi-robbery:GetItems")
-				ClearPedTasks(GetPlayerPed(-1))
-			end, function()
-				TriggerServerEvent('cv-fbi-robbery:server:setRobState', "isBusy", false, r)
-				ClearPedTasks(GetPlayerPed(-1))
-			end)    
-			TriggerServerEvent('cv-fbi-robbery:server:setRobState', "isBusy", true, r)
-		else
-			Core.Functions.Notify("מה אתה חושב שאתה מנסה לגנוב לפני שהתחלת את השוד !", 'error')
-		end
+	if CanRob == true then
+		Core.Functions.Progressbar("search_register", "Searching...", 5000, false, true, {
+			disableMovement = true,
+			disableCarMovement = true,
+			disableMouse = false,
+			disableCombat = true,
+		}, {
+			animDict = 'mp_arresting',
+			anim = 'a_uncuff',
+			flags = 16,
+		}, {}, {}, function()
+			TriggerServerEvent('cv-fbi-robbery:server:setRobState', "isOpened", true, r)
+			TriggerServerEvent('cv-fbi-robbery:server:setRobState', "isBusy", false, r)
+			TriggerServerEvent("cv-fbi-robbery:GetItems")
+			ClearPedTasks(GetPlayerPed(-1))
+		end, function()
+			TriggerServerEvent('cv-fbi-robbery:server:setRobState', "isBusy", false, r)
+			ClearPedTasks(GetPlayerPed(-1))
+		end)    
+		TriggerServerEvent('cv-fbi-robbery:server:setRobState', "isBusy", true, r)
 	else
-		if CanRob == true then
-			Core.Functions.Progressbar("search_register", "Searching...", 5000, false, true, {
-				disableMovement = true,
-				disableCarMovement = true,
-				disableMouse = false,
-				disableCombat = true,
-			}, {
-				animDict = 'mp_arresting',
-				anim = 'a_uncuff',
-				flags = 16,
-			}, {}, {}, function()
-				TriggerServerEvent('cv-fbi-robbery:server:setRobState', "isOpened", true, r)
-				TriggerServerEvent('cv-fbi-robbery:server:setRobState', "isBusy", false, r)
-				TriggerServerEvent("cv-fbi-robbery:GetItems")
-				ClearPedTasks(GetPlayerPed(-1))
-			end, function()
-				TriggerServerEvent('cv-fbi-robbery:server:setRobState', "isBusy", false, r)
-				ClearPedTasks(GetPlayerPed(-1))
-			end)    
-			TriggerServerEvent('cv-fbi-robbery:server:setRobState', "isBusy", true, r)
-		else
-			Core.Functions.Notify("You Need To Start The Robbery First !", 'error')
-		end
+		Core.Functions.Notify("You Need To Start The Robbery First !", 'error')
 	end
 end
 
